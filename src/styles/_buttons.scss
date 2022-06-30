@@ -1,0 +1,10 @@
+@use 'vars' as vars;
+
+.button-up {
+  transition: all 350ms ease-out;
+
+  &:hover {
+    transition: all 250ms ease-in;
+    transform: translateY(-(vars.spacing_x(0.5)));
+  }
+}

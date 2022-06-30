@@ -1,0 +1,30 @@
+@use 'vars' as vars;
+@use 'buttons';
+
+.container {
+  border: none;
+  padding: vars.$spacing;
+  border-radius: vars.spacing_x(0.5);
+  font-weight: vars.$weight_bold;
+  font-size: vars.$font_small;
+  background-color: transparent;
+  text-align: center;
+  cursor: pointer;
+
+  @extend .button-up;
+}
+
+.primary {
+  background-color: vars.$primary;
+  color: vars.$black;
+}
+
+.secondary {
+  color: vars.$primary;
+  border: 2px solid vars.$primary;
+}
+
+.danger {
+  background-color: vars.$danger;
+  color: vars.$white;
+}

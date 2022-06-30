@@ -11,3 +11,8 @@ body {
   background-color: vars.$black;
   color: vars.$white;
 }
+
+button,
+a {
+  cursor: pointer;
+}
