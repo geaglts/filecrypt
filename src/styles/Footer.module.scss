@@ -1,0 +1,17 @@
+@use 'vars' as vars;
+
+.container {
+  height: 100px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+
+  p {
+    font-size: vars.$font_small;
+  }
+
+  p + p {
+    margin-top: vars.$spacing;
+  }
+}

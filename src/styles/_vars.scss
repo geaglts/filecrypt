@@ -1,0 +1,26 @@
+@import url('https://fonts.googleapis.com/css2?family=Rubik:wght@300;400;700&display=swap');
+
+// font variables
+$font_primary: 'Rubik', sans-serif;
+$weight_light: 300;
+$weight_normal: 400;
+$weight_bold: 700;
+
+$font_small: 11pt;
+$font_normal: 14pt;
+$font_large: 28pt;
+
+@function font_large_x($x) {
+  @return $font_large * $x;
+}
+
+// color variables
+$primary: #9cb4cc;
+$white: #ffffde;
+$black: #1b2430;
+
+// space variables
+$spacing: 10px;
+@function spacing_x($x) {
+  @return $spacing * $x;
+}

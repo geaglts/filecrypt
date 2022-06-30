@@ -1,0 +1,9 @@
+@use 'vars' as vars;
+
+.container {
+  padding: vars.spacing_x(2);
+
+  h1 {
+    font-size: vars.$font_large;
+  }
+}
