@@ -1,0 +1,20 @@
+import { createPortal } from 'react-dom'
+
+import styles from '@styles/Modal.module.scss'
+
+const Modal = ({ isOpen = false, onClose = () => {}, children }) => {
+  if (!isOpen) return null
+  return createPortal(
+    <div className={styles.container}>
+      <div className={styles.content}>
+        <button className={styles.close_btn} onClick={onClose}>
+          cerrar
+        </button>
+        {children}
+      </div>
+    </div>,
+    document.getElementById('modal')
+  )
+}
+
+export default Modal

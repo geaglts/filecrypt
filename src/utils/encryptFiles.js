@@ -1,6 +1,6 @@
 import CryptoJS from 'crypto-js'
 
-const testAsyncFileRaeder = (file) => {
+export const asyncFileRaeder = (file) => {
   return new Promise((resolve, reject) => {
     const reader = new FileReader()
     reader.readAsText(file)

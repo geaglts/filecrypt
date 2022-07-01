@@ -2,54 +2,9 @@
 @use 'buttons';
 
 .container {
-  width: 400px;
-  margin: 0 auto;
-  display: flex;
-  justify-content: center;
-  flex-direction: column;
-  row-gap: vars.$spacing;
-}
-
-.file_list_container {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-
-  .close {
-    align-self: flex-end;
-    border: none;
-    background-color: vars.$danger;
-    color: vars.$white;
-    padding: vars.spacing_x(0.5);
-    border-radius: vars.spacing_x(0.5);
-    font-size: vars.$font_small;
-    font-weight: vars.$weight_bold;
-    @extend .button-up;
-  }
-
-  .file_list {
-    display: flex;
-    width: 400px;
-    column-gap: vars.$spacing;
-    overflow-x: auto;
-
-    .file {
-      border: 2px solid vars.$primary;
-      height: 100px;
-      padding: vars.$spacing;
-      width: 70px;
-      border-radius: vars.spacing_x(0.5);
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      flex-direction: column;
-      font-size: vars.$font_normal;
-    }
-  }
-}
-
-.label {
-  height: 400px;
+  $container-size: 400px;
+  height: $container-size;
+  width: $container-size;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -68,10 +23,4 @@
 .input {
   display: none;
   cursor: pointer;
-}
-
-.button_options {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  column-gap: vars.$spacing;
 }

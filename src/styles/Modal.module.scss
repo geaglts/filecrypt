@@ -1,0 +1,27 @@
+@use 'vars' as vars;
+@use 'buttons';
+
+.container {
+  position: absolute;
+  top: 0;
+  left: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: 100%;
+  backdrop-filter: blur(vars.$spacing);
+}
+
+.content {
+  background-color: vars.$black;
+  border-radius: vars.spacing_x(0.5);
+  padding: vars.$spacing;
+  display: flex;
+  flex-direction: column;
+}
+
+.close_btn {
+  align-self: flex-end;
+  @extend .close_btn;
+}

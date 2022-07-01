@@ -1,0 +1,27 @@
+@use 'vars' as vars;
+@use 'buttons';
+
+.container {
+  display: flex;
+  flex-direction: column;
+  width: 400px;
+}
+
+.close_btn {
+  align-self: flex-end;
+  @extend .close_btn;
+}
+
+.file_list {
+  display: flex;
+  width: 400px;
+  column-gap: vars.$spacing;
+  overflow-x: auto;
+}
+
+.button_options {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  column-gap: vars.$spacing;
+  margin: vars.$spacing 0;
+}

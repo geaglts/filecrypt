@@ -1,0 +1,15 @@
+@use 'vars' as vars;
+
+.container {
+  border: 2px solid vars.$primary;
+  padding: vars.$spacing;
+  height: 100px;
+  width: 70px;
+  border-radius: vars.spacing_x(0.5);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  font-size: vars.$font_normal;
+  margin-top: vars.$spacing;
+}
