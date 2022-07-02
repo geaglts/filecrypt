@@ -7,7 +7,7 @@ export const asyncFileRaeder = (file) => {
     reader.onload = (evt) => {
       resolve(evt.target.result)
     }
-    reader.onerror = (evt) => {
+    reader.onerror = () => {
       reject(false)
     }
   })

@@ -1,6 +1,7 @@
 import { useState } from 'react'
 import { useSelector } from 'react-redux'
 import { ArrowBigRightLines } from 'tabler-icons-react'
+import PropTypes from 'prop-types'
 
 import Button from '@common/Button'
 import Info from '@common/Info'
@@ -40,6 +41,10 @@ const KeyRequest = ({ onContinue }) => {
       </Button>
     </div>
   )
+}
+
+KeyRequest.propTypes = {
+  onContinue: PropTypes.func.isRequired,
 }
 
 export default KeyRequest

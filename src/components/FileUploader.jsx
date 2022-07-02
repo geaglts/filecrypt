@@ -1,4 +1,5 @@
 import { Upload } from 'tabler-icons-react'
+import PropTypes from 'prop-types'
 import styles from '@styles/FileUploader.module.scss'
 
 const FileUploader = ({ onLoadFiles, validFiles = '.txt' }) => {
@@ -17,6 +18,11 @@ const FileUploader = ({ onLoadFiles, validFiles = '.txt' }) => {
       />
     </label>
   )
+}
+
+FileUploader.propTypes = {
+  onLoadFiles: PropTypes.func.isRequired,
+  validFiles: PropTypes.string,
 }
 
 export default FileUploader

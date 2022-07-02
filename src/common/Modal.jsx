@@ -1,3 +1,4 @@
+import PropTypes from 'prop-types'
 import { createPortal } from 'react-dom'
 
 import styles from '@styles/Modal.module.scss'
@@ -15,6 +16,12 @@ const Modal = ({ isOpen = false, onClose = () => {}, children }) => {
     </div>,
     document.getElementById('modal')
   )
+}
+
+Modal.propTypes = {
+  isOpen: PropTypes.bool,
+  onClose: PropTypes.func,
+  children: PropTypes.node.isRequired,
 }
 
 export default Modal

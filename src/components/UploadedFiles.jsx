@@ -1,4 +1,5 @@
 import { useSelector } from 'react-redux'
+import PropTypes from 'prop-types'
 
 import Button from '@common/Button'
 import styles from '@styles/UploadedFiles.module.scss'
@@ -38,6 +39,14 @@ const UploadedFiles = ({
       )}
     </section>
   )
+}
+
+UploadedFiles.propTypes = {
+  onClearFiles: PropTypes.func.isRequired,
+  onEncrypt: PropTypes.func.isRequired,
+  onDecrypt: PropTypes.func.isRequired,
+  onDownload: PropTypes.func.isRequired,
+  children: PropTypes.func.isRequired,
 }
 
 export default UploadedFiles
