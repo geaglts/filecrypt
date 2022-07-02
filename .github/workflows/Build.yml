@@ -3,7 +3,7 @@ on: [push]
 permissions:
   contents: write
 jobs:
-  build-and-deploy:
+  test-and-build:
     concurrency: ci-${{ github.ref }}
     runs-on: ubuntu-latest
     steps:
@@ -12,7 +12,6 @@ jobs:
 
       - name: Install and Build 🔧
         run: |
-          npm ci
           npm run lint
           npm run build
 
