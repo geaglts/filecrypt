@@ -1,4 +1,4 @@
-@use 'vars' as vars;
+@use 'vars' as *;
 @use 'buttons';
 
 .container {
@@ -15,13 +15,14 @@
 .file_list {
   display: flex;
   width: 400px;
-  column-gap: vars.$spacing;
+  column-gap: $spacing;
   overflow-x: auto;
+  margin-bottom: $spacing;
 }
 
 .button_options {
   display: grid;
-  grid-template-columns: 1fr 1fr;
-  column-gap: vars.$spacing;
-  margin: vars.$spacing 0;
+  grid-template-columns: repeat(auto-fill, minmax(0.5fr, 1fr));
+  grid-auto-flow: column;
+  column-gap: $spacing;
 }

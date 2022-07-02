@@ -1,30 +1,42 @@
-@use 'vars' as vars;
+@use 'vars' as *;
 @use 'buttons';
 
 .container {
   border: none;
-  padding: vars.$spacing;
-  border-radius: vars.spacing_x(0.5);
-  font-weight: vars.$weight_bold;
-  font-size: vars.$font_small;
+  padding: $spacing;
+  border-radius: spacing_x(0.5);
+  font-weight: $weight_bold;
+  font-size: $font_small;
   background-color: transparent;
   text-align: center;
   cursor: pointer;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  svg {
+    margin-left: spacing_x(0.5);
+  }
 
   @extend .button-up;
 }
 
 .primary {
-  background-color: vars.$primary;
-  color: vars.$black;
+  background-color: $primary;
+  color: $black;
+}
+
+.success {
+  background-color: $success;
+  color: $black;
 }
 
 .secondary {
-  color: vars.$primary;
-  border: 2px solid vars.$primary;
+  color: $primary;
+  border: 2px solid $primary;
 }
 
 .danger {
-  background-color: vars.$danger;
-  color: vars.$white;
+  background-color: $danger;
+  color: $white;
 }

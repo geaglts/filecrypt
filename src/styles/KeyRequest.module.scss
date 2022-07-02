@@ -1,0 +1,25 @@
+@use 'vars' as *;
+
+.container {
+  display: flex;
+  flex-direction: column;
+  width: 400px;
+
+  input {
+    margin-bottom: $spacing;
+  }
+}
+
+.title {
+  font-size: $font_small;
+  margin-bottom: spacing_x(0.5);
+}
+
+.link {
+  align-self: center;
+}
+
+.info,
+.link {
+  margin-bottom: $spacing;
+}

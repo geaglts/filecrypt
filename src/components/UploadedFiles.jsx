@@ -1,5 +1,8 @@
+import { useSelector } from 'react-redux'
+
 import Button from '@common/Button'
 import styles from '@styles/UploadedFiles.module.scss'
+import { DeviceMobileMessage } from 'tabler-icons-react'
 
 const UploadedFiles = ({
   onClearFiles,
@@ -8,20 +11,32 @@ const UploadedFiles = ({
   onDownload,
   children,
 }) => {
+  const files = useSelector((state) => state.files)
+
   return (
     <section className={styles.container}>
       <button className={styles.close_btn} onClick={onClearFiles}>
         Limpiar
       </button>
       <div className={styles.file_container}>
-        <h2>Files</h2>
+        <h2>Archivos</h2>
         <div className={styles.file_list}>{children}</div>
       </div>
-      <div className={styles.button_options}>
-        <Button onClick={onEncrypt}>Encriptar</Button>
-        <Button onClick={onDecrypt}>Desencriptar</Button>
-      </div>
-      <Button onClick={onDownload}>Descargar archivos</Button>
+      {files.toDownload.length === 0 && (
+        <div className={styles.button_options}>
+          {(files.selected_action === 'encrypt' || !files.selected_action) && (
+            <Button onClick={onEncrypt}>Encriptar</Button>
+          )}
+          {(files.selected_action === 'decrypt' || !files.selected_action) && (
+            <Button onClick={onDecrypt}>Desencriptar</Button>
+          )}
+        </div>
+      )}
+      {files.toDownload.length > 0 && (
+        <Button typeStyle="success" onClick={onDownload}>
+          Descargar archivos
+        </Button>
+      )}
     </section>
   )
 }

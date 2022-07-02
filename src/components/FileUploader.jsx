@@ -1,3 +1,4 @@
+import { Upload } from 'tabler-icons-react'
 import folderIcon from '@assets/icons/folder.svg'
 import styles from '@styles/FileUploader.module.scss'
 
@@ -33,7 +34,7 @@ const FileUploader = ({ onLoadFiles, validFiles = '.txt' }) => {
 
   return (
     <label className={styles.container} htmlFor="files">
-      <img className={styles.icon} src={folderIcon} alt="icon" />
+      <Upload size={42} />
       <p>Selecciona tus archivos ({validFiles})</p>
       <input
         className={styles.input}

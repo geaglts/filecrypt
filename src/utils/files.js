@@ -13,11 +13,12 @@ export const asyncFileRaeder = (file) => {
   })
 }
 
-function encryptFiles(content, secret) {
+function encryptFile(content, secret) {
   // const decryptFile = CryptoJS.AES.decrypt(cryptFile, secret)
   //   console.log('cryptFile', cryptFile.toString())
   //   console.log('decryptFile', decryptFile.toString(CryptoJS.enc.Utf8))
   return CryptoJS.AES.encrypt(content, secret).toString()
+
   //   const fileBlob = new Blob([encryptedFile.toString()], {
   //     type: fileType,
   //   })
@@ -51,4 +52,4 @@ function encryptFiles(content, secret) {
   return encryptedFiles
 }
 
-export default encryptFiles
+export default encryptFile

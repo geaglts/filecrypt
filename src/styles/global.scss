@@ -1,10 +1,15 @@
 @use 'vars' as vars;
+@use 'animations';
 
 * {
   font-family: vars.$font_primary;
   margin: 0;
   padding: 0;
   box-sizing: border-box;
+
+  &:focus {
+    outline: 2px dotted vars.$primary;
+  }
 }
 
 body {
@@ -15,4 +20,51 @@ body {
 button,
 a {
   cursor: pointer;
+}
+
+.link {
+  display: inline-block;
+  color: vars.$primary;
+  font-size: vars.$font_small;
+  background-color: transparent;
+  border: none;
+  text-decoration: underline;
+  transition: all 350ms ease-out;
+
+  &:hover {
+    transition: all 150ms ease-in;
+    color: vars.$white;
+    animation: 1s horizontal-shake infinite linear;
+  }
+}
+
+.input {
+  height: 35px;
+  width: 100%;
+  background-color: vars.$white;
+  border-radius: vars.spacing_x(0.5);
+  padding-left: vars.$spacing;
+  font-size: vars.$font_small;
+  font-weight: vars.$weight_bold;
+  border: none;
+  color: vars.$black;
+
+  &::placeholder {
+    color: rgba(vars.$black, 0.6);
+  }
+}
+
+.info {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+
+  font-size: vars.$font_small;
+  color: vars.$white;
+  text-align: center;
+  background-color: rgba(vars.$primary, 0.2);
+  padding: vars.$spacing;
+  border-radius: vars.spacing_x(0.5);
+  line-height: 1.5;
 }
