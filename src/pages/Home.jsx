@@ -59,7 +59,8 @@ const Home = () => {
             const encryptedFile = await encryptFile(fileData, key)
             const blobConfig = { type: file.type }
             const blobUrl = generateBlobUrl(encryptedFile, blobConfig)
-            dispatch(setFileToDownload(blobUrl))
+            const newLink = { url: blobUrl, name: file.name }
+            dispatch(setFileToDownload(newLink))
           })
         }
         break
@@ -71,6 +72,15 @@ const Home = () => {
         return null
     }
     toggleModal()()
+  }
+
+  const handleDownload = () => {
+    const a = document.createElement('a')
+    files.toDownload.forEach((link) => {
+      a.href = link.url
+      a.download = link.name
+      a.click()
+    })
   }
 
   if (ui.error) {
@@ -85,7 +95,7 @@ const Home = () => {
             onClearFiles={handleClearFiles}
             onEncrypt={toggleModal('encrypt')}
             onDecrypt={toggleModal('decrypt')}
-            onDownload={() => {}}
+            onDownload={handleDownload}
           >
             {files.registered.map((file) => (
               <File key={file.name} ext={file.name.split('.').pop()} />
