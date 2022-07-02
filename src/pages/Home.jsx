@@ -32,7 +32,7 @@ const Home = () => {
 
   const toggleModal = (selectedAction) => () => {
     setIsModalOpen(!isModalOpen)
-    selectedAction && dispatch(setSelectedAction(selectedAction))
+    dispatch(setSelectedAction(selectedAction || null))
   }
 
   const handleLoadFiles = (e) => {

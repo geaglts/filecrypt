@@ -2,7 +2,6 @@ import { useSelector } from 'react-redux'
 
 import Button from '@common/Button'
 import styles from '@styles/UploadedFiles.module.scss'
-import { DeviceMobileMessage } from 'tabler-icons-react'
 
 const UploadedFiles = ({
   onClearFiles,
