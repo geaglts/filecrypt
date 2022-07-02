@@ -17,7 +17,7 @@ import {
   setSelectedAction,
 } from '@redux/reducers/fileSlice'
 
-import encryptFile, { asyncFileRaeder } from '@utils/files'
+import { asyncFileRaeder, encryptFile, decrytFile } from '@utils/files'
 import generateBlobUrl from '@utils/generateBlobUrl'
 
 import styles from '@styles/Home.module.scss'
@@ -51,26 +51,16 @@ const Home = () => {
   }
 
   const handleTransformFiles = (key) => () => {
-    switch (files.selected_action) {
-      case 'encrypt':
-        {
-          files.registered.forEach(async (file) => {
-            const fileData = await asyncFileRaeder(file)
-            const encryptedFile = await encryptFile(fileData, key)
-            const blobConfig = { type: file.type }
-            const blobUrl = generateBlobUrl(encryptedFile, blobConfig)
-            const newLink = { url: blobUrl, name: file.name }
-            dispatch(setFileToDownload(newLink))
-          })
-        }
-        break
-      case 'decrypt':
-        {
-        }
-        break
-      default:
-        return null
-    }
+    files.registered.forEach(async (file) => {
+      const fileData = await asyncFileRaeder(file)
+      const encryptedFile = (
+        files.selected_action === 'encrypt' ? encryptFile : decrytFile
+      )(fileData, key)
+      const blobConfig = { type: file.type }
+      const blobUrl = generateBlobUrl(encryptedFile, blobConfig)
+      const newLink = { url: blobUrl, name: file.name }
+      dispatch(setFileToDownload(newLink))
+    })
     toggleModal()()
   }
 
