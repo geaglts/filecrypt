@@ -7,4 +7,6 @@ export const store = configureStore({
     ui: uiReducer,
     files: fileReducer,
   },
+  middleware: (getDefaultMiddleware) =>
+    getDefaultMiddleware({ serializableCheck: false }),
 })

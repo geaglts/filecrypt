@@ -12,7 +12,6 @@ const UploadedFiles = ({
   children,
 }) => {
   const files = useSelector((state) => state.files)
-
   return (
     <section className={styles.container}>
       <button className={styles.close_btn} onClick={onClearFiles}>
@@ -46,7 +45,7 @@ UploadedFiles.propTypes = {
   onEncrypt: PropTypes.func.isRequired,
   onDecrypt: PropTypes.func.isRequired,
   onDownload: PropTypes.func.isRequired,
-  children: PropTypes.func.isRequired,
+  children: PropTypes.element.isRequired,
 }
 
 export default UploadedFiles

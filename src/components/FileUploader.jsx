@@ -1,12 +1,30 @@
+import { useEffect, useRef } from 'react'
 import { Upload } from 'tabler-icons-react'
 import PropTypes from 'prop-types'
 import styles from '@styles/FileUploader.module.scss'
 
-const FileUploader = ({ onLoadFiles, validFiles = '.txt' }) => {
+const FileUploader = ({ onLoadFiles, validFiles }) => {
+  const dropZoneRef = useRef(null)
+
+  const onDragOver = (e) => {
+    e.preventDefault()
+  }
+
+  useEffect(() => {
+    const dropZone = dropZoneRef.current
+    dropZone.addEventListener('drop', onLoadFiles)
+    dropZone.addEventListener('drag', onDragOver)
+    return () => {
+      dropZone.removeEventListener('drop', onLoadFiles)
+      dropZone.removeEventListener('drag', onDragOver)
+    }
+  }, [onLoadFiles, onDragOver])
+
   return (
-    <label className={styles.container} htmlFor="files">
+    <label ref={dropZoneRef} className={styles.container} htmlFor="files">
       <Upload size={42} />
-      <p>Selecciona tus archivos ({validFiles})</p>
+      <p>Arrastra o selecciona tus archivos</p>
+      <p>({validFiles})</p>
       <input
         className={styles.input}
         type="file"
@@ -18,6 +36,10 @@ const FileUploader = ({ onLoadFiles, validFiles = '.txt' }) => {
       />
     </label>
   )
+}
+
+FileUploader.defaultProps = {
+  validFiles: '.txt',
 }
 
 FileUploader.propTypes = {

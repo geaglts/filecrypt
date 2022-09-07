@@ -36,8 +36,14 @@ const Home = () => {
   }
 
   const handleLoadFiles = (e) => {
+    e.preventDefault()
     try {
-      const files = [...e.currentTarget.files]
+      let files = []
+      if (e.dataTransfer?.files) {
+        files = [...e.dataTransfer.files]
+      } else {
+        files = [...e.currentTarget.files]
+      }
       dispatch(setFiles(files))
     } catch (error) {
       dispatch(setError('ops!, something went wrong'))
@@ -77,9 +83,17 @@ const Home = () => {
     return <div>{ui.error}</div>
   }
 
+  const clearDragEvent = (e) => {
+    e.preventDefault()
+  }
+
   return (
     <MainLayout>
-      <div className={styles.container}>
+      <div
+        className={styles.container}
+        onDragOver={clearDragEvent}
+        onDrop={clearDragEvent}
+      >
         {files.registered.length > 0 ? (
           <UploadedFiles
             onClearFiles={handleClearFiles}
