@@ -23,3 +23,32 @@
 .link {
   margin-bottom: $spacing;
 }
+
+.inputContainer {
+  position: relative;
+}
+
+.showIconButton,
+.copyIconButton {
+  background-color: transparent;
+  border: none;
+  position: absolute;
+
+  top: spacing_x(0.3);
+
+  width: 35px;
+  height: 35px;
+  outline: none;
+
+  &:focus {
+    outline: none;
+  }
+}
+
+.showIconButton {
+  right: spacing_x(3);
+}
+
+.copyIconButton {
+  right: 0;
+}
