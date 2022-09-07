@@ -101,9 +101,11 @@ const Home = () => {
             onDecrypt={toggleModal('decrypt')}
             onDownload={handleDownload}
           >
-            {files.registered.map((file) => (
-              <File key={file.name} ext={file.name.split('.').pop()} />
-            ))}
+            <>
+              {files.registered.map((file) => (
+                <File key={file.name} ext={file.name.split('.').pop()} />
+              ))}
+            </>
           </UploadedFiles>
         ) : (
           <FileUploader onLoadFiles={handleLoadFiles} validFiles={VALID_FILES} />
