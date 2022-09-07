@@ -1,0 +1,15 @@
+@use 'vars' as *;
+
+.container {
+}
+
+.copyLabel {
+  position: absolute;
+  bottom: spacing_x(0.3);
+  right: spacing_x(3.5);
+  display: block;
+  background-color: $black;
+  color: $white;
+  width: 100px;
+  padding: $spacing;
+}
