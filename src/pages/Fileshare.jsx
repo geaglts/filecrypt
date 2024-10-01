@@ -24,15 +24,14 @@ const Fileshare = () => {
       const formData = Object.fromEntries(new FormData(evt.target))
       await toast.promise(fileshare.createNewFile(formData), {
         loading: 'Estamos generando tu archivo',
-        success: 'El link  sido generado',
+        success: (link) => {
+          setLink(link)
+          setIsModalOpen(true)
+          evt.target.reset()
+          return 'El link  sido generado'
+        },
         error: 'No fue posible generar el archivo',
       })
-      const link = await fileshare.createNewFile(formData)
-      if (link) {
-        setLink(link)
-        setIsModalOpen(true)
-        evt.target.reset()
-      }
     } catch (error) {
       toast.error('No fue posible generar el archivo')
     }
