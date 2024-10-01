@@ -1,0 +1,49 @@
+@use 'vars' as *;
+
+.container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+
+  form {
+    display: flex;
+    flex-direction: column;
+    width: 500px;
+    padding: 12px;
+    gap: spacing_x(1);
+  }
+}
+
+.formInputVertical {
+  display: grid;
+  gap: 4px;
+  grid-template-columns: 1fr 150px;
+}
+
+.modal {
+  width: 300px;
+  align-items: center;
+  text-align: center;
+}
+
+.linkContainer {
+  display: grid;
+  grid-template-columns: 1fr auto;
+  gap: 12px;
+  margin-top: spacing_x(1);
+}
+
+.copyButton {
+  background-color: transparent;
+  border: none;
+  color: $white;
+}
+
+@media (max-width: 720px) {
+  .container {
+    form {
+      width: 100%;
+    }
+  }
+}
