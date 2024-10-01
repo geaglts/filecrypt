@@ -88,7 +88,7 @@ const Home = () => {
   }
 
   return (
-    <MainLayout>
+    <MainLayout title="FileCrypt">
       <div
         className={styles.container}
         onDragOver={clearDragEvent}

@@ -38,10 +38,6 @@ const FileUploader = ({ onLoadFiles, validFiles }) => {
   )
 }
 
-FileUploader.defaultProps = {
-  validFiles: '.txt',
-}
-
 FileUploader.propTypes = {
   onLoadFiles: PropTypes.func.isRequired,
   validFiles: PropTypes.string,
