@@ -63,13 +63,17 @@ const Fileshare = () => {
               })}
             </select>
           </div>
+          <Input
+            type="password"
+            name="passkey"
+            placeholder="Contraseña (Opcional)"
+          />
           <Textarea
             name="content"
             placeholder="Contenido del archivo"
             rows={10}
             required
           />
-          <input type="hidden" name="passkey" />
           <Button>Generar Enlace</Button>
         </form>
       </section>

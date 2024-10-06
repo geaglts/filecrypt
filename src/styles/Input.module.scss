@@ -1,11 +1,31 @@
 @use 'vars' as *;
 
 .input {
-  background-color: rgba($white, 0.1);
   color: $white;
   width: 100%;
-  padding: 8px;
-  border-radius: spacing_x(0.5);
   border: none;
   font-size: 12pt;
+  background-color: transparent;
+  padding: 8px;
+  background-color: rgba($white, 0.1);
+  border-radius: spacing_x(0.5);
+}
+
+.passwordInputContainer {
+  border-radius: spacing_x(0.5);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 8px;
+  padding: 0 8px 0 0;
+}
+
+.inputIcon {
+  cursor: pointer;
+  transition: all 350ms ease-in;
+
+  &:hover {
+    color: $primary;
+    transition: all 250ms ease-in;
+  }
 }
